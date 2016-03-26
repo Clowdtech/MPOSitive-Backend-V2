@@ -11,7 +11,7 @@ class StoreStaffRepo
 	{
 		return Model::create([
 			'store_id'	=> $staff->store->id,
-			'staff_id'	=> $staff->staf->id,
+			'staff_id'	=> $staff->staff->id,
 		]);
 	}
 }

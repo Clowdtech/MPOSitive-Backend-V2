@@ -16,10 +16,26 @@ class DatabaseSeeder extends Seeder
         $this->call(UserSeeder::class);
         $this->call(StoreSeeder::class);
         $this->call(ProductCategory::class);
+        $this->call(StaffSeeder::class);
     }
 }
 
-
+class StaffSeeder extends Seeder
+{
+    /**
+     * Run the database seeds.
+     *
+     * @return void
+     */
+    public function run()
+    {
+        \App\Staff::create([
+            'name'  =>  'Test Staff Member',
+            'pin'  =>  '0000',
+            'user_id'  =>  \App\User::first()->id,
+        ]);
+    }
+}
 
 class SalesmenSeeder extends Seeder
 {

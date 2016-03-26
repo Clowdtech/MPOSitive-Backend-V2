@@ -7,6 +7,11 @@ use App\Platform\Domains\Staff as Domain;
 
 class StaffRepo
 {
+	public function first()
+	{
+		return Model::first();
+	}
+
 	public function create(Domain $member)
 	{
 		return Model::create([
