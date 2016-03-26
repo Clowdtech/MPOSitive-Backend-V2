@@ -12,4 +12,9 @@ class Generate
 
     	return str_replace('-', '', $uid->toString());
 	}
+
+	public static function pin()
+	{
+		return (string) rand(1000, 9999);
+	}
 }
