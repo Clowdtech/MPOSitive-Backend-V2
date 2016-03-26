@@ -3,6 +3,7 @@
 namespace App\Platform\Domains;
 
 use App\Platform\Helpers\Generate;
+use Hash;
 
 class User
 {
@@ -83,7 +84,7 @@ class User
      */
     public function setPassword($password)
     {
-        $this->password = $password;
+        $this->password = Hash::make($password);
 
         return $this;
     }

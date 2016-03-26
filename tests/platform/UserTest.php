@@ -17,6 +17,7 @@ class UserTest extends TestCase
         parent::SetUp();
 
         $this->domain = new \App\Platform\Domains\User;
+        $this->repo = new \App\Platform\Repositories\UserRepo;
     }
 
     /** @test */
@@ -24,6 +25,21 @@ class UserTest extends TestCase
     {
         $this->assertEquals(true, is_string($this->domain->getUid()));
     }
+
+    /** @test */
+    public function it_can_create_a_new_user()
+    {
+        $pwd = 'password';
+        $user = $this->domain->setName('test name')
+                             ->setPassword($pwd)
+                             ->setEmail('imants.kusins@gmail.com');
+
+        $this->assertEquals(true, is_string($this->domain->getPassword()));
+
+        $created = $this->repo->create($user);
+        $this->assertInstanceOf(\App\User::class, $created);
+    }
+
 
     /**
      * A basic functional test example.
