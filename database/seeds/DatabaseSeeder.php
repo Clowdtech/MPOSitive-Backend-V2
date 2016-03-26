@@ -49,6 +49,7 @@ class StoreSeeder extends Seeder
         \App\Store::create([
             'name' => 'my first store',
             'address' => '90 Gaysham avenue, Ilford, IG2 6TA, Unite Kingdom',
+            'uid' => uniqid(),
             'latitude' => 51.5798718,
             'longitude' => 0.07193119999999453,
             'category_id'   =>  \App\StoreCategory::first()->id,
