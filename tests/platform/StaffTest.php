@@ -50,9 +50,11 @@ class StaffTest extends TestCase
     /** @test */
     public function it_can_create_a_staff_member()
     {
+        $storeRepo = new \App\Platform\Repositories\StoreRepo;
         $staff = $this->domain->setName('John Doe')
                               ->setPin()
-                              ->setUser(auth()->user());
+                              ->setUser(auth()->user())
+                              ->setStore($storeRepo->first());
 
         $this->assertInstanceOf(\App\Staff::class, $this->repo->create($staff));
     }
