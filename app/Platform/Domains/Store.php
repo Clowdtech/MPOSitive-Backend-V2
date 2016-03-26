@@ -6,12 +6,53 @@ use App\Platform\Helpers\Generate;
 
 class Store
 {
+    /**
+     * Store name.
+     * 
+     * @var string
+     */
 	public $name;
+
+    /**
+     * Store address.
+     * 
+     * @var string
+     */
 	public $address;
+
+    /**
+     * Unique store identifier.
+     * 
+     * @var string
+     */
 	public $uid;
+
+    /**
+     * Store location latitude.
+     * 
+     * @var double
+     */
 	public $latitude;
+
+    /**
+     * Store location longitude.
+     * 
+     * @var double
+     */
 	public $longitude;
+
+    /**
+     * User who creates the store.
+     * 
+     * @var \App\User
+     */
 	public $user;
+
+    /**
+     * Category that this store belongs to.
+     * 
+     * @var \App\StoreCategory
+     */
 	public $category;
 
 	public function __construct()

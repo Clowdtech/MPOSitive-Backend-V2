@@ -7,10 +7,39 @@ use App\Platform\Helpers\Generate;
 
 class StoreDevice
 {
+    /**
+     * Device brand.
+     * 
+     * @var string
+     */
 	public $brand;
+
+    /**
+     * Device model.
+     * 
+     * @var string
+     */
 	public $model;
+
+    /**
+     * Unique device identifier.
+     * 
+     * @var string
+     */
 	public $uid;
+
+    /**
+     * Store that this device belongs to.
+     * 
+     * @var \App\Store
+     */
 	public $store;
+
+    /**
+     * User who creates the device.
+     * 
+     * @var \App\User
+     */
 	public $user;
 
 	public function __construct()

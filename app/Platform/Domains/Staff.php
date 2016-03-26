@@ -8,9 +8,32 @@ use App\Platform\Helpers\Generate;
 */
 class Staff
 {
+    /**
+     * Name of the staff member.
+     * 
+     * @var string
+     */
 	public $name;
-	public $pin;
+	
+    /**
+     * Staff member pin.
+     * 
+     * @var string
+     */
+    public $pin;
+
+    /**
+     * User who creates the staff memeber.
+     * 
+     * @var \App\User
+     */
     public $user;
+
+    /**
+     * Store for whom the staff member works.
+     * 
+     * @var \App\Store
+     */
 	public $store;
 
 	public function __construct()

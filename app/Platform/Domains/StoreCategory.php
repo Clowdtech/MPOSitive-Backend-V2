@@ -5,7 +5,18 @@ namespace App\Platform\Domains;
 
 class StoreCategory
 {
+    /**
+     * Store category name.
+     * 
+     * @var string
+     */
 	public $name;
+
+    /**
+     * Is this category active.
+     * 
+     * @var bool
+     */
 	public $active;
 
     /**

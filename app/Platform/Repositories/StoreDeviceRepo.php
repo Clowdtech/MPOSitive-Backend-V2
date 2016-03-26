@@ -7,6 +7,12 @@ use App\Platform\Domains\StoreDevice as Domain;
 
 class StoreDeviceRepo
 {
+	/**
+	 * Create store device record.
+	 * 
+	 * @param  App\Platform\Domains\StoreDevice $device
+	 * @return mixed
+	 */
 	public function create(Domain $device)
 	{
 		return Model::create([

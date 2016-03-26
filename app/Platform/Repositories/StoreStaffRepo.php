@@ -7,6 +7,12 @@ use App\Platform\Domains\StoreStaff as Domain;
 
 class StoreStaffRepo
 {
+	/**
+	 * Create a new store staff record.
+	 * 
+	 * @param  App\Platform\Domains\StoreStaff $staff
+	 * @return mixed
+	 */
 	public function create(Domain $staff)
 	{
 		return Model::create([

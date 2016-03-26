@@ -37,6 +37,16 @@ class CreateStaffMemberHandlerTest extends TestCase
         ];
 
         $this->assertInstanceOf(\App\Staff::class, $this->handler->handle($data));
+
+        // creates with correct pin
+        $data = [
+            'name'  =>  'some test name',
+            'pin'  =>  '1111',
+            'user_id'  =>  auth()->user()->id,
+            'store_id'  =>  $storerepo->first()->id,
+        ];
+
+        $this->assertEquals($data['pin'], $this->handler->handle($data)->pin);
     }
 
 }

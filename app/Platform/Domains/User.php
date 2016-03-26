@@ -7,10 +7,39 @@ use Hash;
 
 class User
 {
+    /**
+     * User name.
+     * 
+     * @var string
+     */
 	public $name;
+
+    /**
+     * User email.
+     * 
+     * @var string
+     */
 	public $email;
+
+    /**
+     * User password.
+     * 
+     * @var string
+     */
 	public $password;
+
+    /**
+     * Unique user identifier.
+     * 
+     * @var string
+     */
     public $uid;
+
+    /**
+     * Salesman thaat this user is associated to.
+     * 
+     * @var \App\Salesman
+     */
 	public $salesman;
 
 	public function __construct()

@@ -43,7 +43,7 @@ class StoreCategoryTest extends TestCase
                                  ->setActive(true);
         $created = $this->repo->create($category);
 
-        $this->assertInstanceOf(\App\StoreCategory::class, $this->repo->get($created->id));
+        $this->assertInstanceOf(\App\StoreCategory::class, $this->repo->find($created->id));
     }
 
 }

@@ -7,6 +7,12 @@ use App\Platform\Domains\ProductCategory as Domain;
 
 class ProductCategoryRepo
 {
+	/**
+	 * Create product category.
+	 * 
+	 * @param  App\Platform\Domains\ProductCategory $category
+	 * @return mixed
+	 */
 	public function create(Domain $category)
 	{
 		return Model::create([
@@ -17,6 +23,11 @@ class ProductCategoryRepo
 		]);
 	}
 
+	/**
+	 * Return first record from the table.
+	 * 
+	 * @return mixed
+	 */
 	public function first()
 	{
 		return Model::first();

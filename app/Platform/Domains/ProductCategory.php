@@ -3,16 +3,37 @@
 namespace App\Platform\Domains;
 
 /**
-* 
+* Product category domain.
 */
+
 class ProductCategory
 {
+    /**
+     * Product category name.
+     * 
+     * @var string
+     */
 	public $name;
 
+    /**
+     * Is the category active.
+     * 
+     * @var bool
+     */
 	public $active;
 
+    /**
+     * User who creates the category.
+     * 
+     * @var \App\User
+     */
 	public $user;
 
+    /**
+     * Category assigned to which store.
+     * 
+     * @var \App\Store
+     */
 	public $store;
 	
     /**

@@ -7,7 +7,18 @@ namespace App\Platform\Domains;
 */
 class StoreStaff
 {
-	public $store;	
+    /**
+     * Store that the staff member works for.
+     * 
+     * @var \App\Store
+     */
+	public $store;
+
+    /**
+     * Staff member that is being assigned to this store.
+     * 
+     * @var \App\Staff
+     */
 	public $staff;
 
     /**
