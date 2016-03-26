@@ -29,10 +29,12 @@ class UserTest extends TestCase
     /** @test */
     public function it_can_create_a_new_user()
     {
+        $salesmanRepo = new \App\Platform\Repositories\SalesmanRepo;
         $pwd = 'password';
         $user = $this->domain->setName('test name')
                              ->setPassword($pwd)
-                             ->setEmail('imants.kusins2@gmail.com');
+                             ->setEmail('imants.kusins2@gmail.com')
+                             ->setSalesman($salesmanRepo->first());
 
         $this->assertEquals(true, is_string($this->domain->getPassword()));
 

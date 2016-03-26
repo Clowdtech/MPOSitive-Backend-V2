@@ -14,6 +14,7 @@ class UserRepo
 			'email'		=>	$user->email,
 			'password'	=>	$user->password,
 			'uid'		=>	$user->uid,
+			'salesman_id'		=>	$user->salesman->id,
 		]);
 	}
 

@@ -10,7 +10,8 @@ class User
 	public $name;
 	public $email;
 	public $password;
-	public $uid;
+    public $uid;
+	public $salesman;
 
 	public function __construct()
 	{
@@ -109,6 +110,30 @@ class User
     public function setUid()
     {
         $this->uid = Generate::uid();
+
+        return $this;
+    }
+
+    /**
+     * Gets the value of salesman.
+     *
+     * @return mixed
+     */
+    public function getSalesman()
+    {
+        return $this->salesman;
+    }
+
+    /**
+     * Sets the value of salesman.
+     *
+     * @param mixed $salesman the salesman
+     *
+     * @return self
+     */
+    public function setSalesman($salesman)
+    {
+        $this->salesman = $salesman;
 
         return $this;
     }
