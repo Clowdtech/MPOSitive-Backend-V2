@@ -32,7 +32,7 @@ class UserTest extends TestCase
         $pwd = 'password';
         $user = $this->domain->setName('test name')
                              ->setPassword($pwd)
-                             ->setEmail('imants.kusins@gmail.com');
+                             ->setEmail('imants.kusins2@gmail.com');
 
         $this->assertEquals(true, is_string($this->domain->getPassword()));
 
@@ -40,15 +40,4 @@ class UserTest extends TestCase
         $this->assertInstanceOf(\App\User::class, $created);
     }
 
-
-    /**
-     * A basic functional test example.
-     *
-     * @return void
-     */
-    public function testBasicExample()
-    {
-        $this->visit('/')
-             ->see('Laravel 5');
-    }
 }
