@@ -61,7 +61,7 @@ class Staff
      */
     public function setPin($pin = null)
     {
-    	if (is_null($pin)) {
+    	if (is_null($pin) || strlen($pin) !== 4) {
     		$pin = $this->generator->pin();
     	}
 

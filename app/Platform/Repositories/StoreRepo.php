@@ -20,6 +20,11 @@ class StoreRepo
 		]);
 	}
 
+	public function find($id)
+	{
+		return Model::where('id', $id)->first();
+	}
+
 	public function first()
 	{
 		return Model::first();

@@ -36,7 +36,7 @@ class CreateStaffMemberHandlerTest extends TestCase
             'store_id'  =>  $storerepo->first()->id,
         ];
 
-        $this->handler->create($data);
+        $this->assertInstanceOf(\App\Staff::class, $this->handler->handle($data));
     }
 
 }
