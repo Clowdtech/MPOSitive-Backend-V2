@@ -1,3 +1,4 @@
 # Clowdtech MPOS EPOS system.
 
-- test
+#TODO
+	- add font and bg colours to products and product categories;
