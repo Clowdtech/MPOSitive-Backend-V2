@@ -18,6 +18,8 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->string('password');
             $table->string('uid')->unique();
+            $table->integer('salesman_id')->unsigned();
+            $table->foreign('salesman_id')->references('id')->on('salesmen');
             $table->rememberToken();
             $table->timestamps();
         });

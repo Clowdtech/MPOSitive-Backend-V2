@@ -12,11 +12,30 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->call(StoreCategoriesSeeder::class);
+        $this->call(SalesmenSeeder::class);
         $this->call(UserSeeder::class);
         $this->call(StoreSeeder::class);
         $this->call(ProductCategory::class);
     }
 }
+
+
+
+class SalesmenSeeder extends Seeder
+{
+    /**
+     * Run the database seeds.
+     *
+     * @return void
+     */
+    public function run()
+    {
+        \App\Salesman::create([
+            'name'  =>  'System',
+        ]);
+    }
+}
+
 
 class ProductCategory extends Seeder
 {
@@ -71,7 +90,8 @@ class UserSeeder extends Seeder
     	\App\User::create([
     		'name' => 'Imants Kusins',
     		'password'	=> \Hash::make('password'),
-    		'email'	=> 'imants.kusins@gmail.com',
+            'email' => 'imants.kusins@gmail.com',
+    		'salesman_id'	=> \App\Salesman::first()->id,
     	]);
     }
 }
