@@ -16,4 +16,9 @@ class UserRepo
 			'uid'		=>	$user->uid,
 		]);
 	}
+
+	public function getLoggedIn()
+	{
+		return auth()->user();
+	}
 }

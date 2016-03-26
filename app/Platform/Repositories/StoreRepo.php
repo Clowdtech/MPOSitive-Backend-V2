@@ -19,4 +19,9 @@ class StoreRepo
 			'category_id'		=>	$store->category->id,
 		]);
 	}
+
+	public function first()
+	{
+		return Model::first();
+	}
 }
