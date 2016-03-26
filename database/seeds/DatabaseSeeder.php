@@ -14,8 +14,28 @@ class DatabaseSeeder extends Seeder
         $this->call(StoreCategoriesSeeder::class);
         $this->call(UserSeeder::class);
         $this->call(StoreSeeder::class);
+        $this->call(ProductCategory::class);
     }
 }
+
+class ProductCategory extends Seeder
+{
+    /**
+     * Run the database seeds.
+     *
+     * @return void
+     */
+    public function run()
+    {
+        \App\ProductCategory::create([
+            'name'  =>  'Latte',
+            'active'    =>  true,
+            'user_id'   =>  \App\User::first()->id,
+            'store_id' => \App\Store::first()->id,
+        ]);
+    }
+}
+
 
 class StoreSeeder extends Seeder
 {

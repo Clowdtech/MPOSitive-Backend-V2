@@ -4,9 +4,7 @@ namespace App\Platform\Domains;
 
 use App\Platform\Helpers\Generate;
 
-/**
-* 
-*/
+
 class StoreDevice
 {
 	public $brand;
