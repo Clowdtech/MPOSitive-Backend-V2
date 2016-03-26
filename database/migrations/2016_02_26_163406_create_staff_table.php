@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateStoreUsersTable extends Migration
+class CreateStaffTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,18 +12,16 @@ class CreateStoreUsersTable extends Migration
      */
     public function up()
     {
-        Schema::create('store_users', function (Blueprint $table) {
+        Schema::create('staff', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('store_id')->unsigned();
+            $table->string('name');
+            $table->string('pin', 4);
             $table->integer('user_id')->unsigned();
-            $table->foreign('store_id')
-                  ->references('id')
-                  ->on('stores');
-
             $table->foreign('user_id')
                       ->references('id')
                       ->on('users');
             $table->timestamps();
+
         });
     }
 
@@ -34,6 +32,6 @@ class CreateStoreUsersTable extends Migration
      */
     public function down()
     {
-        Schema::drop('store_users');
+        Schema::drop('staff');
     }
 }
