@@ -10,7 +10,8 @@ class Staff
 {
 	public $name;
 	public $pin;
-	public $user;
+    public $user;
+	public $store;
 
 	public function __construct()
 	{
@@ -89,6 +90,30 @@ class Staff
     public function setUser($user)
     {
         $this->user = $user;
+
+        return $this;
+    }
+
+    /**
+     * Gets the value of store.
+     *
+     * @return mixed
+     */
+    public function getStore()
+    {
+        return $this->store;
+    }
+
+    /**
+     * Sets the value of store.
+     *
+     * @param mixed $store the store
+     *
+     * @return self
+     */
+    public function setStore($store)
+    {
+        $this->store = $store;
 
         return $this;
     }

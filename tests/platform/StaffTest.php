@@ -54,6 +54,12 @@ class StaffTest extends TestCase
                               ->setPin()
                               ->setUser(auth()->user());
 
+        $this->assertInstanceOf(\App\Staff::class, $this->repo->create($staff));
+    }
+
+    /** @test */
+    public function it_creates_a_staff_member_and_assigns_him_to_a_store()
+    {
         
     }
 
