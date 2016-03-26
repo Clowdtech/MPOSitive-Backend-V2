@@ -9,11 +9,14 @@ class StoreRepo
 {
 	public function create(Domain $store)
 	{
-		// return Model::create([
-		// 	'name'		=>	$user->name,
-		// 	'email'		=>	$user->email,
-		// 	'password'	=>	$user->password,
-		// 	'uid'		=>	$user->uid,
-		// ]);
+		return Model::create([
+			'name'		=>	$store->name,
+			'uid'		=>	$store->uid,
+			'address'		=>	$store->address,
+			'latitude'		=>	$store->latitude,
+			'longitude'		=>	$store->longitude,
+			'user_id'		=>	$store->user->id,
+			'category_id'		=>	$store->category->id,
+		]);
 	}
 }
