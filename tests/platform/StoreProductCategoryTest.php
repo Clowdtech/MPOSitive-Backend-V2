@@ -29,4 +29,15 @@ class StoreProductCategoryTest extends TestCase
     	$this->assertInstanceOf(\App\Platform\Repositories\StoreProductCategoryRepo::class, $this->repo);
     }
 
+    /** @test */
+    public function it_can_create_a_new_store_product_category()
+    {
+        $storeRepo = new \App\Platform\Repositories\StoreRepo;
+        $productCategory = new \App\Platform\Repositories\ProductCategoryRepo;
+        $category = $this->domain->setActive(true)
+                                 ->setStore($storeRepo->first())
+                                 ->setStoreProductCategory($productCategory->first());
+        $this->assertInstanceOf(\App\StoreProductCategory::class, $this->repo->create($category));
+    }
+
 }
