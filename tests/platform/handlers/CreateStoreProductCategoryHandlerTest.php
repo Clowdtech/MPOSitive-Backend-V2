@@ -38,7 +38,7 @@ class CreateStoreProductCategoryHandlerTest extends TestCase
             'stores'  =>  [$storeRepo->first()->id],
         ];
 
-        $this->handler->handle($data);
+        $this->assertInstanceOf(\App\StoreProductCategory::class, $this->handler->handle($data));
     }
 
 }
