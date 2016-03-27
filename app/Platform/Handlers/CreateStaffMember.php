@@ -14,23 +14,42 @@ use Exception;
 
 class CreateStaffMember
 {
+	/**
+	 * [$staffRepo description]
+	 * @var [type]
+	 */
 	protected $staffRepo;
+
+	/**
+	 * [$staffRepo description]
+	 * @var [type]
+	 */
 	protected $storeStaffRepo;
+
+	/**
+	 * [$staffRepo description]
+	 * @var [type]
+	 */
 	protected $userRepo;
+
+	/**
+	 * [$staffRepo description]
+	 * @var [type]
+	 */
 	protected $storeRepo;
 
+	/**
+	 * [$staffRepo description]
+	 * @var [type]
+	 */
 	protected $staffDomain;
+
+	/**
+	 * [$staffRepo description]
+	 * @var [type]
+	 */
 	protected $storeStaffDomain;
 
-	protected $unprocessed;
-
-	protected $processed;
-
-	private $required = [
-		'name',
-        'user_id',
-        'store_id',
-	];
 
 	public function __construct()
 	{
@@ -42,24 +61,20 @@ class CreateStaffMember
 		$this->storeStaffDomain = new StoreStaffDomain;
 	}
 
+	/**
+	 * Handle staff member creation.
+	 * @param  array  $data [description]
+	 * @return [type]       [description]
+	 */
 	public function handle(array $data)
 	{
-		$this->setUnprocessed($data);
-
-		$this->validate();
-
-		return $this->execute();
-	}
-
-	public function execute()
-	{
 		// 1. Find user
-		$user = $this->userRepo->find($this->processed['user_id']);
+		$user = $this->userRepo->find($data['user_id']);
 		// 2. Find store
-		$store = $this->storeRepo->find($this->processed['store_id']);
+		$store = $this->storeRepo->find($data['store_id']);
 		// 3. Create staff domain
-		$staff = $this->staffDomain->setName($this->processed['name'])
-								   ->setPin($this->processed['pin'])
+		$staff = $this->staffDomain->setName($data['name'])
+								   ->setPin($data['pin'])
 								   ->setUser($user)
 								   ->setStore($store);
 		// 4. Store new staff member.
@@ -73,64 +88,4 @@ class CreateStaffMember
 		return $createdStaff;
 	}
 
-	public function validate()
-	{
-		foreach ($this->unprocessed as $key => $field) {
-			if (in_array($key, $this->required)) {
-				if ($field === '' || is_null($field)) {
-					throw new Exception("Value cannot be empty. Required values are [" . implode(',', $this->required) . "]");
-				}
-			}
-		}
-
-		$this->setProcessed($this->unprocessed);
-	}
-
-    /**
-     * Gets the value of unprocessed.
-     *
-     * @return mixed
-     */
-    public function getUnprocessed()
-    {
-        return $this->unprocessed;
-    }
-
-    /**
-     * Sets the value of unprocessed.
-     *
-     * @param mixed $unprocessed the unprocessed
-     *
-     * @return self
-     */
-    protected function setUnprocessed($unprocessed)
-    {
-        $this->unprocessed = $unprocessed;
-
-        return $this;
-    }
-
-    /**
-     * Gets the value of processed.
-     *
-     * @return mixed
-     */
-    public function getProcessed()
-    {
-        return $this->processed;
-    }
-
-    /**
-     * Sets the value of processed.
-     *
-     * @param mixed $processed the processed
-     *
-     * @return self
-     */
-    protected function setProcessed($processed)
-    {
-        $this->processed = $processed;
-
-        return $this;
-    }
 }

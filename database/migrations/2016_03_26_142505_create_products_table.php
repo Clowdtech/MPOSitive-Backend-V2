@@ -23,9 +23,6 @@ class CreateProductsTable extends Migration
             $table->integer('category_id')->unsigned();
             $table->foreign('category_id')->references('id')->on('product_categories');
 
-            // $table->integer('store_id')->unsigned();
-            // $table->foreign('store_id')->references('id')->on('stores');
-
             $table->integer('created_by')->unsigned();
             $table->foreign('created_by')->references('id')->on('users');
             $table->timestamps();

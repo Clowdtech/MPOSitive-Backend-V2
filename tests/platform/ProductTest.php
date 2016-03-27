@@ -29,4 +29,14 @@ class ProductTest extends TestCase
     	$this->assertInstanceOf(\App\Platform\Repositories\ProductRepo::class, $this->repo);
     }
 
+    /** @test */
+    public function it_can_create_a_new_product()
+    {
+        $product = $this->domain->setName('Linguini')
+                                ->setBackgroundColor('#cccccc')
+                                ->setFontColor('#ffffff')
+                                ->setPrice(4.5);
+        // dd($product);
+    }
+
 }
