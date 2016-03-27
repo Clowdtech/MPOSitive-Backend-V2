@@ -7,7 +7,12 @@ use App\Platform\Domains\StoreProductCategory as Domain;
 
 class StoreProductCategoryRepo
 {
-
+	/**
+	 * Create a new store product category.
+	 * 
+	 * @param  App\Platform\Domains\StoreProductCategory  $category
+	 * @return mixed
+	 */
 	public function create(Domain $category)
 	{
 		return Model::create([
@@ -16,6 +21,7 @@ class StoreProductCategoryRepo
 			'product_category_id'	=>	$category->storeProductCategory->id,
 		]);
 	}
+
 	/**
 	 * Return first record from the store_product_categories table.
 	 * 
