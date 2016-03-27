@@ -33,6 +33,8 @@ class ProductCategoryTest extends TestCase
     public function logged_in_user_can_create_a_product_category_to_a_specific_store()
     {
         $category = $this->domain->setName('Latte')
+                                 ->setBackgroundColor('#cccccc')
+                                 ->setFontColor('#ffffff')
                                  ->setActive(true)
                                  ->setUser(auth()->user());
 

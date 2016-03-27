@@ -28,6 +28,10 @@ class ProductCategory
      * @var \App\User
      */
 	public $user;
+
+    public $backgroundColor;
+
+    public $fontColor;
 	
     /**
      * Gets the value of name.
@@ -97,6 +101,54 @@ class ProductCategory
     public function setUser($user)
     {
         $this->user = $user;
+
+        return $this;
+    }
+
+    /**
+     * Gets the value of backgroundColor.
+     *
+     * @return mixed
+     */
+    public function getBackgroundColor()
+    {
+        return $this->backgroundColor;
+    }
+
+    /**
+     * Sets the value of backgroundColor.
+     *
+     * @param mixed $backgroundColor the background color
+     *
+     * @return self
+     */
+    public function setBackgroundColor($backgroundColor)
+    {
+        $this->backgroundColor = $backgroundColor;
+
+        return $this;
+    }
+
+    /**
+     * Gets the value of fontColor.
+     *
+     * @return mixed
+     */
+    public function getFontColor()
+    {
+        return $this->fontColor;
+    }
+
+    /**
+     * Sets the value of fontColor.
+     *
+     * @param mixed $fontColor the font color
+     *
+     * @return self
+     */
+    public function setFontColor($fontColor)
+    {
+        $this->fontColor = $fontColor;
 
         return $this;
     }

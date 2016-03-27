@@ -10,5 +10,7 @@ class ProductCategory extends Model
 		'name',
 		'active',
 		'user_id',
+		'background_color',
+		'font_color',
     ];
 }
