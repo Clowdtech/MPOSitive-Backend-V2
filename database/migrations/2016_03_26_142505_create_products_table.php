@@ -20,9 +20,6 @@ class CreateProductsTable extends Migration
             $table->string('font_color')->nullable();
             $table->decimal('price', 6, 2);
 
-            $table->integer('category_id')->unsigned();
-            $table->foreign('category_id')->references('id')->on('product_categories');
-
             $table->integer('created_by')->unsigned();
             $table->foreign('created_by')->references('id')->on('users');
             $table->timestamps();

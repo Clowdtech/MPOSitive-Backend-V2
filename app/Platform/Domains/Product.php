@@ -13,7 +13,6 @@ class Product
     public $backgroundColor;
     public $fontColor;
     public $price;
-    public $category;
     public $user;
 
     public function __construct()
@@ -137,30 +136,6 @@ class Product
     public function setPrice($price)
     {
         $this->price = $price;
-
-        return $this;
-    }
-
-    /**
-     * Gets the value of category.
-     *
-     * @return mixed
-     */
-    public function getCategory()
-    {
-        return $this->category;
-    }
-
-    /**
-     * Sets the value of category.
-     *
-     * @param mixed $category the category
-     *
-     * @return self
-     */
-    public function setCategory($category)
-    {
-        $this->category = $category;
 
         return $this;
     }

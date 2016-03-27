@@ -32,12 +32,10 @@ class ProductTest extends TestCase
     /** @test */
     public function it_can_create_a_new_product()
     {
-        $productCategoryRepo = new \App\Platform\Repositories\ProductCategoryRepo;
         $userRepo = new \App\Platform\Repositories\UserRepo;
         $product = $this->domain->setName('Linguini')
                                 ->setBackgroundColor('#cccccc')
                                 ->setFontColor('#ffffff')
-                                ->setCategory($productCategoryRepo->first())
                                 ->setUser(auth()->user())
                                 ->setPrice(4.5);
 

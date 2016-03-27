@@ -20,7 +20,6 @@ class ProductRepo
 			'background_color'	=>	$product->backgroundColor,
 			'font_color'	=>	$product->fontColor,
 			'price'	=>	$product->price,
-			'category_id'	=>	$product->category->id,
 			'created_by'	=>	$product->user->id,
 		]);
 	}

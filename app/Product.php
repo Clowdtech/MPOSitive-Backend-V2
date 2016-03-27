@@ -12,7 +12,6 @@ class Product extends Model
 		'background_color',
 		'font_color',
 		'price',
-		'category_id',
 		'created_by',
     ];
 }
