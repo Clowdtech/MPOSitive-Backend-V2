@@ -32,11 +32,9 @@ class ProductCategoryTest extends TestCase
     /** @test */
     public function logged_in_user_can_create_a_product_category_to_a_specific_store()
     {
-        $storeRepo = new \App\Platform\Repositories\StoreRepo;
         $category = $this->domain->setName('Latte')
                                  ->setActive(true)
-                                 ->setUser(auth()->user())
-                                 ->setStore($storeRepo->first());
+                                 ->setUser(auth()->user());
 
         $this->assertInstanceOf(\App\ProductCategory::class, $this->repo->create($category));
     }

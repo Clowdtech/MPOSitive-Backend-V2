@@ -28,13 +28,6 @@ class ProductCategory
      * @var \App\User
      */
 	public $user;
-
-    /**
-     * Category assigned to which store.
-     * 
-     * @var \App\Store
-     */
-	public $store;
 	
     /**
      * Gets the value of name.
@@ -104,30 +97,6 @@ class ProductCategory
     public function setUser($user)
     {
         $this->user = $user;
-
-        return $this;
-    }
-
-    /**
-     * Gets the value of store.
-     *
-     * @return mixed
-     */
-    public function getStore()
-    {
-        return $this->store;
-    }
-
-    /**
-     * Sets the value of store.
-     *
-     * @param mixed $store the store
-     *
-     * @return self
-     */
-    public function setStore($store)
-    {
-        $this->store = $store;
 
         return $this;
     }

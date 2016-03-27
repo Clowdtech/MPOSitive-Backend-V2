@@ -66,7 +66,6 @@ class ProductCategory extends Seeder
             'name'  =>  'Latte',
             'active'    =>  true,
             'user_id'   =>  \App\User::first()->id,
-            'store_id' => \App\Store::first()->id,
         ]);
     }
 }

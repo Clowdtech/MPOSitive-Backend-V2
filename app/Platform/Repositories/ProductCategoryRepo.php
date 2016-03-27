@@ -19,7 +19,6 @@ class ProductCategoryRepo
 			'name'	=>	$category->name,
 			'active'	=>	$category->active,
 			'user_id'	=>	$category->user->id,
-			'store_id'	=>	$category->store->id,
 		]);
 	}
 
