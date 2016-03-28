@@ -8,6 +8,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 use App\Platform\Repositories\StoreProductRepo;
+use App\Platform\Repositories\ProductRepo;
 use App\Platform\Repositories\StoreRepo;
 
 class ProductController extends Controller
@@ -16,10 +17,13 @@ class ProductController extends Controller
 
 	protected $storeRepo;
 
-	public function __construct(StoreProductRepo $storeProductRepo, StoreRepo $storeRepo)
+	protected $productRepo;
+
+	public function __construct(StoreProductRepo $storeProductRepo, StoreRepo $storeRepo, ProductRepo $productRepo)
 	{
 		$this->storeProductRepo = $storeProductRepo;
 		$this->storeRepo = $storeRepo;
+		$this->productRepo = $productRepo;
 	}
 
 	/**
@@ -34,7 +38,7 @@ class ProductController extends Controller
 		try {
 			return $this->storeRepo->findBySlug(auth()->user()->id, $slug);
 		} catch (\Exception $e) {
-			// handle
+			die($e->getMessage());
 		}
 	}
 
@@ -49,6 +53,14 @@ class ProductController extends Controller
 
     public function getSingleProduct($slug, $productId)
     {
-    	return;
+    	try {
+
+    		$store = $this->findStore($slug);
+// $productId = 123123123;
+			return $this->productRepo->find($productId);
+
+		} catch (\Exception $e) {
+			echo $e->getMessage();
+		}
     }
 }
