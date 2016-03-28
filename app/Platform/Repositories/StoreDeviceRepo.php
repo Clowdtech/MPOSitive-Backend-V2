@@ -7,6 +7,11 @@ use App\Platform\Domains\StoreDevice as Domain;
 
 class StoreDeviceRepo
 {
+	public function getByStore($storeId)
+	{
+		return Model::where('store_id', $storeId)->get();
+	}
+
 	/**
 	 * Create store device record.
 	 * 

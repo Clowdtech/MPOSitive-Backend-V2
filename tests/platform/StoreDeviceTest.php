@@ -40,4 +40,11 @@ class StoreDeviceTest extends TestCase
 
         $this->assertInstanceOf(\App\StoreDevice::class, $this->repo->create($device));
     }
+
+    /** @test */
+    public function it_can_get_all_stores_devices()
+    {
+        $store = new \App\Platform\Repositories\StoreRepo;
+        $this->assertInstanceOf(\Illuminate\Database\Eloquent\Collection::class, $this->repo->getByStore($store->first()->id));
+    }
 }
