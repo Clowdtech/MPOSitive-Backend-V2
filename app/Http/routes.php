@@ -34,6 +34,12 @@ Route::group(['middleware' => ['web', 'auth']], function(){
 		'as'	=>	'CustomerAccountPage'
 	]);
 
+	Route::get('account/log', [
+		'uses'	=>	'\App\Http\Controllers\Customer\HomeController@getLog',
+		'as'	=>	'CustomerAccountLogPage'
+	]);
+
+
 	Route::get('account/settings', [
 		'uses'	=>	'\App\Http\Controllers\Customer\HomeController@getAccountSettings',
 		'as'	=>	'CustomerAccountSettingsPage'

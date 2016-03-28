@@ -23,4 +23,9 @@ class HomeController extends Controller
     {
     	return;
     }
+
+    public function getLog()
+    {
+        return;
+    }
 }
