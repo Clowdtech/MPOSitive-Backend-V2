@@ -9,8 +9,10 @@ use App\Http\Controllers\Controller;
 
 class HomeController extends Controller
 {
+    protected $viewPrefix = 'mpos.public.';
+
     public function getIndex()
     {
-    	return;
+    	return view($this->viewPrefix . 'index')->with([]);
     }
 }
