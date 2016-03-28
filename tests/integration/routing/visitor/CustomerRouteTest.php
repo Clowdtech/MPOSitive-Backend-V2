@@ -68,12 +68,12 @@ class CustomerRouteTest extends TestCase
 
 
     /** @test */
-    public function it_can_show_store_product_page()
+    public function it_can_show_store_single_product_page()
     {
         $storerepo = new \App\Platform\Repositories\StoreRepo;
         $productrepo = new \App\Platform\Repositories\ProductRepo;
         $response = $this->call('GET', route('CustomerStoreSingleProductPage', [
-            'uid' => $storerepo->first()->uid,
+            'slug' => $storerepo->first()->slug,
             'productid' => $productrepo->first()->uid,
             ]));
 

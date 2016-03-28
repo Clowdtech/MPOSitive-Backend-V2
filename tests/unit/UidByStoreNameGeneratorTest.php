@@ -25,8 +25,8 @@ class UidByStoreNameGeneratorTest extends TestCase
     public function it_can_generate_a_store_slug_from_a_store_test_name()
     {
         $slug = $this->generator->storeSlugFromName('my store test name');
+        
         $this->assertEquals(true, is_string($slug));
-
         $this->assertEquals('my-store-test-name', $slug);
     }
 

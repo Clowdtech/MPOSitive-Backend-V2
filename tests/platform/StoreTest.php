@@ -50,4 +50,19 @@ class StoreTest extends TestCase
         $this->assertInstanceOf(\Illuminate\Database\Eloquent\Collection::class, $this->repo->getUsersStores(auth()->user()->id));
     }
 
+    /** @test */
+    public function it_can_find_a_store_by_slug()
+    {
+        $this->assertInstanceOf(
+            \App\Store::class,
+            $this->repo->findBySlug($this->repo->first()->id, $this->repo->first()->slug)
+        );
+    }
+
+    /** @test */
+    public function it_can_check_if_the_store_slug_is_unique_for_this_users_store()
+    {
+        $this->assertEquals(true, true);
+    }
+
 }

@@ -38,6 +38,11 @@ class StoreRepo
 		return Model::where('user_id', $userId)->get();
 	}
 
+	public function findBySlug($storeId, $slug)
+	{
+		return Model::where('id', $storeId)->where('slug', $slug)->first();
+	}
+
 	/**
 	 * Find the store by it's id.
 	 * 
