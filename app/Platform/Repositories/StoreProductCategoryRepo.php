@@ -22,6 +22,11 @@ class StoreProductCategoryRepo
 		]);
 	}
 
+	/**
+	 * Get all active product categories.
+	 * 
+	 * @return array
+	 */
 	public function getActive()
 	{
 		$ret = [];
@@ -32,6 +37,11 @@ class StoreProductCategoryRepo
 		return $ret;
 	}
 
+	/**
+	 * Get all stores product categories.
+	 * 
+	 * @return array
+	 */
 	public function getByStore($storeId, $active = true)
 	{
 		$ret = [];
