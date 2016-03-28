@@ -43,7 +43,7 @@ class CustomerRouteTest extends TestCase
     public function it_can_show_single_store_page()
     {
         $storerepo = new \App\Platform\Repositories\StoreRepo;
-        $response = $this->call('GET', route('CustomerSingleStorePage', ['uid', $storerepo->first()->uid]));
+        $response = $this->call('GET', route('CustomerSingleStorePage', ['slug', $storerepo->first()->slug]));
 
         $this->assertEquals(200, $response->status());
     }
@@ -52,7 +52,7 @@ class CustomerRouteTest extends TestCase
     public function it_can_show_store_devices_page()
     {
         $storerepo = new \App\Platform\Repositories\StoreRepo;
-        $response = $this->call('GET', route('CustomerStoreDevicesPage', ['uid', $storerepo->first()->uid]));
+        $response = $this->call('GET', route('CustomerStoreDevicesPage', ['slug', $storerepo->first()->slug]));
 
         $this->assertEquals(200, $response->status());
     }
@@ -61,7 +61,7 @@ class CustomerRouteTest extends TestCase
     public function it_can_show_store_products_page()
     {
         $storerepo = new \App\Platform\Repositories\StoreRepo;
-        $response = $this->call('GET', route('CustomerStoreProductsPage', ['uid', $storerepo->first()->uid]));
+        $response = $this->call('GET', route('CustomerStoreProductsPage', ['slug', $storerepo->first()->slug]));
 
         $this->assertEquals(200, $response->status());
     }

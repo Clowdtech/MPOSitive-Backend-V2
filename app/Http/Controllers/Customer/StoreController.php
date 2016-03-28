@@ -9,6 +9,11 @@ use App\Http\Controllers\Controller;
 
 class StoreController extends Controller
 {
+	/**
+	 * Store view index page.
+	 * 
+	 * @return response
+	 */
     public function getIndex()
     {
     	return;
@@ -24,12 +29,12 @@ class StoreController extends Controller
     	return;
     }
 
-    public function getSingleProduct($uid, $productId)
+    public function getSingleProduct($slug, $productId)
     {
     	return;
     }
 
-    public function getSingleStore($uid)
+    public function getSingleStore($slug)
     {
     	return;
     }

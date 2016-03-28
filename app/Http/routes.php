@@ -39,22 +39,22 @@ Route::group(['middleware' => ['web', 'auth']], function(){
 		'as'	=>	'CustomerStorePage'
 	]);
 
-	Route::get('stores/{uid}', [
+	Route::get('stores/{slug}', [
 		'uses'	=>	'\App\Http\Controllers\Customer\StoreController@getSingleStore',
 		'as'	=>	'CustomerSingleStorePage'
 	]);
 
-	Route::get('stores/{uid}/devices', [
+	Route::get('stores/{slug}/devices', [
 		'uses'	=>	'\App\Http\Controllers\Customer\StoreController@getDevices',
 		'as'	=>	'CustomerStoreDevicesPage'
 	]);
 	
-	Route::get('stores/{uid}/products', [
+	Route::get('stores/{slug}/products', [
 		'uses'	=>	'\App\Http\Controllers\Customer\StoreController@getProducts',
 		'as'	=>	'CustomerStoreProductsPage'
 	]);
 
-	Route::get('stores/{uid}/products/{productid}', [
+	Route::get('stores/{slug}/products/{productid}', [
 		'uses'	=>	'\App\Http\Controllers\Customer\StoreController@getSingleProduct',
 		'as'	=>	'CustomerStoreSingleProductPage'
 	]);
