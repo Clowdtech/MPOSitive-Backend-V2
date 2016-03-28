@@ -59,10 +59,4 @@ class StoreTest extends TestCase
         );
     }
 
-    /** @test */
-    public function it_can_check_if_the_store_slug_is_unique_for_this_users_store()
-    {
-        $this->assertEquals(true, true);
-    }
-
 }

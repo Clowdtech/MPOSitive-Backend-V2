@@ -80,4 +80,13 @@ class CustomerRouteTest extends TestCase
         $this->assertEquals(200, $response->status());
     }
 
+    /** @test */
+    public function it_can_show_account_settings_page()
+    {
+        $response = $this->call('GET', route('CustomerAccountSettingsPage'));
+
+        $this->assertEquals(200, $response->status());
+        
+    }
+
 }

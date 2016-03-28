@@ -18,4 +18,9 @@ class HomeController extends Controller
     {
     	return;
     }
+
+    public function getAccountSettings()
+    {
+    	return;
+    }
 }
