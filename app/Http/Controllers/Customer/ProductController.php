@@ -43,30 +43,28 @@ class ProductController extends Controller
 			$this->handleException($e);
 		}
 
-		$data = $this->gatherResponseData($store);
-		dd($data, true);
-		// return view with data
+		return $store;
 	}
 
     public function getProducts($slug)
     {
     	$store = $this->findStore($slug);
-    	
     	$products = $this->storeProductRepo->getProducts($store->id);
 
-    	return $products;
+    	return $this->gatherResponseData($products);
     }
 
     public function getSingleProduct($slug, $productId)
     {
+    	$product = [];
+
     	try {
-
     		$store = $this->findStore($slug);
-
-			return $this->productRepo->find($productId);
-
+    		$product = $this->productRepo->find($productId);
 		} catch (\Exception $e) {
-			echo $e->getMessage();
+			$this->handleException($e);
 		}
+
+		$this->gatherResponseData($product);
     }
 }
