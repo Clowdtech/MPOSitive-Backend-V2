@@ -15,11 +15,18 @@ class CustomerRouteTest extends TestCase
         $this->actingAs(\App\User::first());
     }
 
-
     /** @test */
     public function it_can_show_authenticated_client_home_page()
     {
         $response = $this->call('GET', route('CustomerHomePage'));
+
+        $this->assertEquals(200, $response->status());
+    }
+
+    /** @test */
+    public function it_can_show_customers_profile_page()
+    {
+        $response = $this->call('GET', route('CustomerAccountPage'));
 
         $this->assertEquals(200, $response->status());
     }

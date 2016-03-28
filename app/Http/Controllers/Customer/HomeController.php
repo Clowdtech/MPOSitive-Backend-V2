@@ -13,4 +13,9 @@ class HomeController extends Controller
     {
     	return;
     }
+
+    public function getAccount()
+    {
+    	return;
+    }
 }

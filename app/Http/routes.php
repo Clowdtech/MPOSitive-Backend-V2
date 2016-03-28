@@ -29,6 +29,11 @@ Route::group(['middleware' => ['web', 'auth']], function(){
 		'as'	=>	'CustomerHomePage'
 	]);
 
+	Route::get('account/me', [
+		'uses'	=>	'\App\Http\Controllers\Customer\HomeController@getAccount',
+		'as'	=>	'CustomerAccountPage'
+	]);
+
 	Route::get('stores', [
 		'uses'	=>	'\App\Http\Controllers\Customer\StoreController@getIndex',
 		'as'	=>	'CustomerStorePage'
