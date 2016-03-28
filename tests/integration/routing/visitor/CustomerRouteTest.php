@@ -74,7 +74,7 @@ class CustomerRouteTest extends TestCase
         $productrepo = new \App\Platform\Repositories\ProductRepo;
         $response = $this->call('GET', route('CustomerStoreSingleProductPage', [
             'slug' => $storerepo->first()->slug,
-            'productid' => $productrepo->first()->uid,
+            'productid' => $productrepo->first()->id,
             ]));
 
         $this->assertEquals(200, $response->status());

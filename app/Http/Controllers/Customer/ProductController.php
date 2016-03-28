@@ -56,7 +56,7 @@ class ProductController extends Controller
     	try {
 
     		$store = $this->findStore($slug);
-// $productId = 123123123;
+
 			return $this->productRepo->find($productId);
 
 		} catch (\Exception $e) {
