@@ -163,7 +163,7 @@ class Store extends StoreValidator
      */
     public function setLatitude($latitude)
     {
-        $this->latitude = $latitude;
+        $this->latitude = (double) $latitude;
 
         return $this;
     }
@@ -187,7 +187,7 @@ class Store extends StoreValidator
      */
     public function setLongitude($longitude)
     {
-        $this->longitude = $longitude;
+        $this->longitude = (double) $longitude;
 
         return $this;
     }

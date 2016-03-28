@@ -50,12 +50,12 @@ Route::group(['middleware' => ['web', 'auth']], function(){
 	]);
 	
 	Route::get('stores/{slug}/products', [
-		'uses'	=>	'\App\Http\Controllers\Customer\StoreController@getProducts',
+		'uses'	=>	'\App\Http\Controllers\Customer\ProductController@getProducts',
 		'as'	=>	'CustomerStoreProductsPage'
 	]);
 
 	Route::get('stores/{slug}/products/{productid}', [
-		'uses'	=>	'\App\Http\Controllers\Customer\StoreController@getSingleProduct',
+		'uses'	=>	'\App\Http\Controllers\Customer\ProductController@getSingleProduct',
 		'as'	=>	'CustomerStoreSingleProductPage'
 	]);
 	

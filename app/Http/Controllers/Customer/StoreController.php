@@ -24,15 +24,6 @@ class StoreController extends Controller
     	return;
     }
 
-    public function getProducts($uid)
-    {
-    	return;
-    }
-
-    public function getSingleProduct($slug, $productId)
-    {
-    	return;
-    }
 
     public function getSingleStore($slug)
     {
