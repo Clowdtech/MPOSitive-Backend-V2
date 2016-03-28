@@ -3,10 +3,15 @@
 namespace App\Platform\Validators;
 
 use Exception;
+use App\Platform\Repositories\StoreRepo;
 
 class StoreValidator
 {
-	public function __construct() {}
+	protected $storeRepo;
+
+	public function __construct() {
+		$this->storeRepo = new StoreRepo;
+	}
 
 	public function userIsSet()
 	{
@@ -15,5 +20,13 @@ class StoreValidator
 		}
 
 		return true;
+	}
+
+	public function slugIsUsed($slug)
+	{
+		if (!is_null($this->storeRepo->findBySlug($this->user->id, $slug)))
+			throw new Exception(str_replace('-', ' ', $slug) . ' store name is already in use.');
+			
+		return false;
 	}
 }

@@ -263,7 +263,11 @@ class Store extends StoreValidator
     {
         $this->userIsSet();
 
-        $this->slug = Generate::storeSlugFromName($name);
+        $generated = Generate::storeSlugFromName($name);
+
+        $this->slugIsUsed($generated);
+
+        $this->slug = $generated;
 
         return $this;
     }

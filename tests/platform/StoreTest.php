@@ -34,7 +34,7 @@ class StoreTest extends TestCase
     {
     	$categoryRepo = new \App\Platform\Repositories\StoreCategoryRepo;
 
-    	$store = $this->domain->setName('my first store')
+    	$store = $this->domain->setName('my second store')
     						  ->setAddress('90 Gaysham avenue, Ilford, IG2 6TA, Unite Kingdom')
     						  ->setLatitude(51.5798718)
     						  ->setLongitude(0.07193119999999453)
