@@ -44,4 +44,10 @@ class StoreTest extends TestCase
     	$this->assertInstanceOf(\App\Store::class, $this->repo->create($store));
     }
 
+    /** @test */
+    public function it_can_return_all_users_stores()
+    {
+        $this->assertInstanceOf(\Illuminate\Database\Eloquent\Collection::class, $this->repo->getUsersStores(auth()->user()->id));
+    }
+
 }

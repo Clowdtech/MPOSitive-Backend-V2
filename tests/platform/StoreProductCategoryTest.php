@@ -40,4 +40,11 @@ class StoreProductCategoryTest extends TestCase
         $this->assertInstanceOf(\App\StoreProductCategory::class, $this->repo->create($category));
     }
 
+    /** @test */
+    public function it_can_return_store_product_categories()
+    {
+        $storeRepo = new \App\Platform\Repositories\StoreRepo;
+        $this->assertEquals(true, is_array($this->repo->getByStore($storeRepo->first()->id)));
+    }
+
 }

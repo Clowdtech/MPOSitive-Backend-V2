@@ -42,4 +42,10 @@ class UserTest extends TestCase
         $this->assertInstanceOf(\App\User::class, $created);
     }
 
+    /** @test */
+    public function it_can_return_logged_in_users_account_details()
+    {
+        $this->assertEquals(auth()->user(), $this->repo->getLoggedIn());
+    }
+
 }

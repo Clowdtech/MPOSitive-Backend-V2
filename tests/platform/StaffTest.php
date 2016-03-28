@@ -59,4 +59,5 @@ class StaffTest extends TestCase
         $this->assertInstanceOf(\App\Staff::class, $this->repo->create($staff));
     }
 
+
 }

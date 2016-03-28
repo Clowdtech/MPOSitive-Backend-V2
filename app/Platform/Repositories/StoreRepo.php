@@ -27,6 +27,17 @@ class StoreRepo
 	}
 
 	/**
+	 * Return users stores.
+	 * 
+	 * @param  int 	$userId
+	 * @return mixed
+	 */
+	public function getUsersStores($userId)
+	{
+		return Model::where('user_id', $userId)->get();
+	}
+
+	/**
 	 * Find the store by it's id.
 	 * 
 	 * @param  int $id
