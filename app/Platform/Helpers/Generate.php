@@ -7,6 +7,17 @@ use Ramsey\Uuid\Uuid;
 class Generate
 {
 	/**
+	 * Generates a store slug from name.
+	 * 
+	 * @param  [type] $name [description]
+	 * @return [type]       [description]
+	 */
+	public static function storeSlugFromName($name)
+	{
+		return  str_replace(' ', '-', strtolower($name));
+	}
+
+	/**
 	 * Generates a unique identifier.
 	 * 
 	 * @return string

@@ -17,6 +17,7 @@ class StoreRepo
 	{
 		return Model::create([
 			'name'		=>	$store->name,
+			'slug'		=>	$store->slug,
 			'uid'		=>	$store->uid,
 			'address'		=>	$store->address,
 			'latitude'		=>	$store->latitude,

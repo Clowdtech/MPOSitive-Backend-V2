@@ -14,6 +14,13 @@ class Store
 	public $name;
 
     /**
+     * Store slug.
+     * 
+     * @var string
+     */
+    public $slug;
+
+    /**
      * Store address.
      * 
      * @var string
@@ -80,6 +87,8 @@ class Store
     public function setName($name)
     {
         $this->name = $name;
+
+        $this->setSlug($name);
 
         return $this;
     }
@@ -224,6 +233,30 @@ class Store
     public function setCategory($category)
     {
         $this->category = $category;
+
+        return $this;
+    }
+
+    /**
+     * Gets the Store slug.
+     *
+     * @return string
+     */
+    public function getSlug()
+    {
+        return $this->slug;
+    }
+
+    /**
+     * Sets the Store slug.
+     *
+     * @param string $slug the slug
+     *
+     * @return self
+     */
+    public function setSlug($name)
+    {
+        $this->slug = Generate::storeSlugFromName($name);
 
         return $this;
     }
