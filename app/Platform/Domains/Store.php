@@ -4,6 +4,8 @@ namespace App\Platform\Domains;
 
 use App\Platform\Helpers\Generate;
 
+use App\Platform\Validators\StoreValidator;
+
 class Store
 {
     /**
@@ -62,9 +64,17 @@ class Store
      */
 	public $category;
 
+    /**
+     * Validator instance holder.
+     * @var \App\Platform\Validators\StoreValidator
+     */
+    protected $validator;
+
 	public function __construct()
 	{
 		$this->setUid();
+
+        $this->validator = new StoreValidator;
 	}
 
     /**
