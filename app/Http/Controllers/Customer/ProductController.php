@@ -35,11 +35,17 @@ class ProductController extends Controller
 	 */
 	protected function findStore($slug)
 	{
+		$store = [];
+
 		try {
-			return $this->storeRepo->findBySlug(auth()->user()->id, $slug);
+			$store = $this->storeRepo->findBySlug(auth()->user()->id, $slug);
 		} catch (\Exception $e) {
-			die($e->getMessage());
+			$this->handleException($e);
 		}
+
+		$data = $this->gatherResponseData($store);
+		dd($data, true);
+		// return view with data
 	}
 
     public function getProducts($slug)
