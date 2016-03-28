@@ -91,6 +91,10 @@ class Store extends StoreValidator
      */
     public function setName($name)
     {
+        $this->userIsSet();
+
+        $this->findByName($name);
+
         $this->name = $name;
 
         return $this;
@@ -261,11 +265,7 @@ class Store extends StoreValidator
      */
     public function setSlug($name)
     {
-        $this->userIsSet();
-
         $generated = Generate::storeSlugFromName($name);
-
-        $this->slugIsUsed($generated);
 
         $this->slug = $generated;
 

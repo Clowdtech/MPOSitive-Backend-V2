@@ -34,12 +34,12 @@ class StoreTest extends TestCase
     {
     	$categoryRepo = new \App\Platform\Repositories\StoreCategoryRepo;
 
-    	$store = $this->domain->setName('my second store')
+    	$store = $this->domain->setUser(auth()->user())
+                              ->setName('my second store')
     						  ->setAddress('90 Gaysham avenue, Ilford, IG2 6TA, Unite Kingdom')
     						  ->setLatitude(51.5798718)
     						  ->setLongitude(0.07193119999999453)
-    						  ->setCategory($categoryRepo->first())
-    						  ->setUser(auth()->user());
+    						  ->setCategory($categoryRepo->first());
 
     	$this->assertInstanceOf(\App\Store::class, $this->repo->create($store));
     }

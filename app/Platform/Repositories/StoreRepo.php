@@ -51,6 +51,18 @@ class StoreRepo
 	}
 
 	/**
+	 * Find a store by name.
+	 * 
+	 * @param  int $storeId
+	 * @param  string 	$slug
+	 * @return 
+	 */
+	public function findByName($userId, $name)
+	{
+		return Model::where('user_id', $userId)->where('name', $name)->first();
+	}
+
+	/**
 	 * Find the store by it's id.
 	 * 
 	 * @param  int $id
