@@ -33,10 +33,42 @@ class CustomerRouteTest extends TestCase
     }
 
     /** @test */
+    public function it_can_show_single_store_page()
+    {
+        $storerepo = new \App\Platform\Repositories\StoreRepo;
+        $response = $this->call('GET', route('CustomerSingleStorePage', ['uid', $storerepo->first()->uid]));
+
+        $this->assertEquals(200, $response->status());
+    }
+
+    /** @test */
     public function it_can_show_store_devices_page()
     {
         $storerepo = new \App\Platform\Repositories\StoreRepo;
         $response = $this->call('GET', route('CustomerStoreDevicesPage', ['uid', $storerepo->first()->uid]));
+
+        $this->assertEquals(200, $response->status());
+    }
+
+    /** @test */
+    public function it_can_show_store_products_page()
+    {
+        $storerepo = new \App\Platform\Repositories\StoreRepo;
+        $response = $this->call('GET', route('CustomerStoreProductsPage', ['uid', $storerepo->first()->uid]));
+
+        $this->assertEquals(200, $response->status());
+    }
+
+
+    /** @test */
+    public function it_can_show_store_product_page()
+    {
+        $storerepo = new \App\Platform\Repositories\StoreRepo;
+        $productrepo = new \App\Platform\Repositories\ProductRepo;
+        $response = $this->call('GET', route('CustomerStoreSingleProductPage', [
+            'uid' => $storerepo->first()->uid,
+            'productid' => $productrepo->first()->uid,
+            ]));
 
         $this->assertEquals(200, $response->status());
     }

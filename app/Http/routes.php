@@ -34,11 +34,24 @@ Route::group(['middleware' => ['web', 'auth']], function(){
 		'as'	=>	'CustomerStorePage'
 	]);
 
-	Route::get('store/{id}/devices', [
+	Route::get('stores/{uid}', [
+		'uses'	=>	'\App\Http\Controllers\Customer\StoreController@getSingleStore',
+		'as'	=>	'CustomerSingleStorePage'
+	]);
+
+	Route::get('stores/{uid}/devices', [
 		'uses'	=>	'\App\Http\Controllers\Customer\StoreController@getDevices',
 		'as'	=>	'CustomerStoreDevicesPage'
 	]);
-
 	
+	Route::get('stores/{uid}/products', [
+		'uses'	=>	'\App\Http\Controllers\Customer\StoreController@getProducts',
+		'as'	=>	'CustomerStoreProductsPage'
+	]);
+
+	Route::get('stores/{uid}/products/{productid}', [
+		'uses'	=>	'\App\Http\Controllers\Customer\StoreController@getSingleProduct',
+		'as'	=>	'CustomerStoreSingleProductPage'
+	]);
 	
 });
