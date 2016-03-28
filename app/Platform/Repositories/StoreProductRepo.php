@@ -18,6 +18,11 @@ class StoreProductRepo
 		]);
 	}
 
+	public function getProducts($storeId)
+	{
+		return Model::where('store_id', $storeId)->get();
+	}
+
 	/**
 	 * Return first record from the salesmen table.
 	 * 

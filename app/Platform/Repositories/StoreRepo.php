@@ -5,8 +5,15 @@ namespace App\Platform\Repositories;
 use App\Store as Model;
 use App\Platform\Domains\Store as Domain;
 
-class StoreRepo
+use App\Platform\Repositories\Repository;
+
+class StoreRepo extends Repository
 {
+	public function __construct()
+	{
+		parent::__construct();
+	}
+
 	/**
 	 * Create a new store record.
 	 * 
@@ -47,7 +54,9 @@ class StoreRepo
 	 */
 	public function findBySlug($userId, $slug)
 	{
-		return Model::where('user_id', $userId)->where('slug', $slug)->first();
+		$data = Model::where('user_id', $userId)->where('slug', $slug)->first();
+		
+		return $this->ifNotEmpty($data, $slug . ' slug doesn\'t exist.');
 	}
 
 	/**
