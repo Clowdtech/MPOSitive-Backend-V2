@@ -6,7 +6,7 @@ use App\Platform\Helpers\Generate;
 
 use App\Platform\Validators\StoreValidator;
 
-class Store
+class Store extends StoreValidator
 {
     /**
      * Store name.
@@ -64,17 +64,12 @@ class Store
      */
 	public $category;
 
-    /**
-     * Validator instance holder.
-     * @var \App\Platform\Validators\StoreValidator
-     */
-    protected $validator;
 
 	public function __construct()
 	{
-		$this->setUid();
+        parent::__construct();
 
-        $this->validator = new StoreValidator;
+		$this->setUid();
 	}
 
     /**
@@ -97,8 +92,6 @@ class Store
     public function setName($name)
     {
         $this->name = $name;
-
-        $this->setSlug($name);
 
         return $this;
     }
@@ -220,6 +213,8 @@ class Store
     {
         $this->user = $user;
 
+        $this->setSlug($this->name);
+
         return $this;
     }
 
@@ -266,6 +261,8 @@ class Store
      */
     public function setSlug($name)
     {
+        $this->userIsSet();
+
         $this->slug = Generate::storeSlugFromName($name);
 
         return $this;
