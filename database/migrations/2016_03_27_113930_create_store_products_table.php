@@ -14,6 +14,7 @@ class CreateStoreProductsTable extends Migration
     {
         Schema::create('store_products', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('uid')->unique();
             $table->integer('qty')->unsigned()->default(0);
             $table->integer('store_id')->unsigned();
             $table->foreign('store_id')->references('id')->on('stores');

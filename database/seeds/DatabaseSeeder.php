@@ -17,6 +17,36 @@ class DatabaseSeeder extends Seeder
         $this->call(StoreSeeder::class);
         $this->call(ProductCategory::class);
         $this->call(StaffSeeder::class);
+        $this->call(ProductSeeder::class);
+    }
+}
+
+
+class ProductSeeder extends Seeder
+{
+    /**
+     * Run the database seeds.
+     *
+     * @return void
+     */
+    public function run()
+    {
+        $created = \App\Product::create([
+            'uid'   =>  uniqid(),
+            'name'  =>  'test',
+            'background_color'  =>  '#cccccc',
+            'font_color'    =>  '#eeeeee',
+            'price' =>  4.50,
+            'created_by'    =>  \App\User::first()->id,
+        ]);
+
+        \App\StoreProduct::create([
+            'qty'   =>  1,
+            'uid'   =>  uniqid(),
+            'store_id'  =>  \App\Store::first()->id,
+            'product_id'    =>  $created->id,
+            'active'    =>  1,
+        ]);
     }
 }
 

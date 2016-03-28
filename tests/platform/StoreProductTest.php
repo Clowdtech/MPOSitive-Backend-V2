@@ -29,4 +29,19 @@ class StoreProductTest extends TestCase
     	$this->assertInstanceOf(\App\Platform\Repositories\StoreProductRepo::class, $this->repo);
     }
 
+    /** @test */
+    public function it_can_create_store_product()
+    {
+        $storeRepo = new \App\Platform\Repositories\StoreRepo;
+        $productRepo = new \App\Platform\Repositories\ProductRepo;
+
+        $product = $this->domain->setQty(10)
+                                ->setStore($storeRepo->first())
+                                ->setProduct($productRepo->first())
+                                ->setActive(true);
+
+
+        $this->assertInstanceOf(\App\StoreProduct::class, $this->repo->create($product));
+    }
+
 }

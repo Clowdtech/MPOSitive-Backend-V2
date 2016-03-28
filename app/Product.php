@@ -14,4 +14,9 @@ class Product extends Model
 		'price',
 		'created_by',
     ];
+
+    public function createdBy()
+    {
+    	return $this->hasOne(\App\User::class, 'id', 'created_by');
+    }
 }
